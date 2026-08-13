@@ -1,0 +1,36 @@
+name: Daily CentoIntel update
+
+on:
+  schedule:
+    - cron: "30 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run daily intelligence research
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5
+        run: python scripts/daily_update.py
+
+      - name: Commit updated intelligence
+        run: |
+          git config user.name "CentoIntel Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/live.json
+          git diff --cached --quiet || git commit -m "chore: daily CI update"
+          git push
