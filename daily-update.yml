@@ -20,10 +20,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run daily intelligence research
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: gpt-5
+      - name: Run deep free public-source scan
         run: python scripts/daily_update.py
 
       - name: Commit updated intelligence
@@ -31,5 +28,5 @@ jobs:
           git config user.name "CentoIntel Bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/live.json
-          git diff --cached --quiet || git commit -m "chore: daily CI update"
+          git diff --cached --quiet || git commit -m "chore: daily public-source CI update"
           git push
