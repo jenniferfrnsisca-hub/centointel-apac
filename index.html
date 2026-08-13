@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CentoIntel APAC — Competitive Intelligence Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d41f32;--ink:#22252a;--muted:#6e737b;--line:#e8e8ea;--bg:#f6f6f7;--card:#fff;--soft:#fff1f2;--green:#16865a;--amber:#a36a00;--blue:#2457a6}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:inherit}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+aside{background:#fff;border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh}
+.logo{font-weight:800;font-size:19px;letter-spacing:-.5px;padding:8px 10px 24px}.logo span{color:var(--red)}
+.logo small{display:block;color:#85888d;font-size:10px;letter-spacing:1.2px;margin-top:6px;text-transform:uppercase}
+nav button{display:block;width:100%;border:0;background:transparent;text-align:left;padding:11px 12px;border-radius:9px;margin:3px 0;color:#5e6268;font-weight:600;cursor:pointer}
+nav button.active,nav button:hover{background:var(--soft);color:var(--red)}
+.side-note{position:absolute;bottom:22px;left:22px;right:22px;font-size:11px;line-height:1.5;color:#85888d}
+main{padding:30px 34px 60px;max-width:1500px;width:100%}
+.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:24px}
+h1{font-size:28px;letter-spacing:-1px;margin:0 0 7px}.sub{color:var(--muted);font-size:13px}
+.search{width:min(420px,100%);display:flex;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.search input{border:0;outline:0;width:100%;font:inherit}.search button{border:0;background:var(--ink);color:#fff;border-radius:7px;padding:8px 12px;cursor:pointer}
+.view{display:none}.view.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px}.kpi .n{font-size:25px;font-weight:800}.kpi .l{font-size:11px;color:var(--muted);margin-top:5px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:26px 0 12px}.section-head h2{font-size:16px;margin:0}.section-head span{font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px}.card h3{font-size:14px;margin:0 0 7px}.meta{font-size:11px;color:var(--muted);line-height:1.5}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.tag{font-size:10px;padding:5px 7px;border-radius:999px;background:#f2f3f4;color:#555}.high{background:#fff0f2;color:#b51d2d}.med{background:#fff7e7;color:#9a6400}.low{background:#eef7f2;color:#14764f}
+.update{display:grid;grid-template-columns:88px 1fr auto;gap:14px;align-items:start}.update-date{font-size:11px;color:var(--muted)}.update-title{font-weight:700;font-size:13px;margin-bottom:5px}.update-summary{font-size:12px;line-height:1.6;color:#53575d}.impact{font-size:10px;font-weight:800;padding:6px 8px;border-radius:999px;white-space:nowrap}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 10px;font-size:11px;font-weight:700;cursor:pointer}.btn:hover{border-color:#bbb}.btn.red{background:var(--red);color:#fff;border-color:var(--red)}
+.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:12px 13px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#fafafa;color:#666;font-size:10px;text-transform:uppercase;letter-spacing:.4px}tr:last-child td{border-bottom:0}
+.check{font-weight:800;color:var(--green)}.unknown{color:#a0a3a8}.product-name{font-weight:800}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.filters select,.filters input{border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px 10px;font:inherit;font-size:11px}
+.competitor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.comp{cursor:pointer;transition:.15s}.comp:hover{transform:translateY(-2px);box-shadow:0 6px 18px #0000000b}.comp-top{display:flex;justify-content:space-between;gap:10px}.priority-dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px}.dot-high{background:var(--red)}.dot-med{background:#e0a127}.dot-low{background:#36a56f}
+.profile{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.profile .card{min-height:150px}.links a{display:block;font-size:12px;margin:8px 0;color:var(--blue);text-decoration:none}.links a:hover{text-decoration:underline}
+.battle-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.battle-card h3{margin-bottom:4px}.battle-card ul{padding-left:18px;font-size:12px;line-height:1.7;color:#555}
+.notice{background:#fff8ea;border:1px solid #f2dfb4;border-radius:10px;padding:12px;font-size:11px;color:#745300;margin-bottom:15px}
+.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal.open{display:flex}.modal-box{background:#fff;max-width:720px;width:100%;max-height:85vh;overflow:auto;border-radius:14px;padding:24px}.modal-head{display:flex;justify-content:space-between;gap:10px}.close{border:0;background:#f2f2f2;border-radius:50%;width:32px;height:32px;cursor:pointer}
+footer{margin-top:35px;color:#8b8e93;font-size:10px}
+@media(max-width:1100px){.app{grid-template-columns:210px 1fr}.competitor-grid{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.app{display:block}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}.side-note{display:none}main{padding:22px 16px}.kpis{grid-template-columns:repeat(2,1fr)}.competitor-grid,.grid,.battle-grid,.profile{grid-template-columns:1fr}.top{display:block}.search{margin-top:15px;width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="logo">Cento<span>Intel</span><small>APAC Intelligence Hub</small></div>
+  <nav id="nav">
+    <button class="active" data-view="dashboard">◉ Dashboard</button>
+    <button data-view="competitors">◌ Competitors</button>
+    <button data-view="battles">◇ Product Battles</button>
+    <button data-view="taiwan">◎ Taiwan Watch</button>
+    <button data-view="apac">△ APAC Watch</button>
+    <button data-view="sales">▣ Sales Intelligence</button>
+    <button data-view="research">⌕ Research</button>
+    <button data-view="sources">↗ Sources</button>
+  </nav>
+  <div class="side-note">Public-source competitive intelligence only.<br>Facts, inference and uncertainty should remain clearly separated.</div>
+</aside>
+<main>
+  <div class="top">
+    <div><h1 id="pageTitle">Competitive Intelligence Dashboard</h1><div class="sub">Sales-oriented market intelligence for CENTOGENE APAC · Research cutoff: 13 Aug 2026</div></div>
+    <div class="search"><input id="globalSearch" placeholder="Search competitors, products, updates…"><button onclick="runSearch()">Search</button></div>
+  </div>
+
+  <section class="view active" id="dashboard">
+    <div class="kpis">
+      <div class="kpi"><div class="n" id="kpiComp">22</div><div class="l">Tracked competitors</div></div>
+      <div class="kpi"><div class="n">8</div><div class="l">Product battle areas</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">High-impact recent signals</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">Source tiers</div></div>
+    </div>
+    <div class="notice">Demo intelligence is preloaded from public sources. The site does <b>not</b> continuously monitor the web in the background; use Research and source links for fresh investigations.</div>
+    <div class="section-head"><h2>Priority developments</h2><span>Newest first · public evidence</span></div>
+    <div id="updates" class="grid"></div>
+    <div class="section-head"><h2>Product battle map</h2><span>Direct + indirect substitutes</span></div>
+    <div class="grid" id="productCards"></div>
+  </section>
+
+  <section class="view" id="competitors">
+    <div class="filters"><select id="regionFilter"><option value="">All regions</option><option>Global</option><option>Global / adjacent</option><option>Global / APAC</option><option>Taiwan</option><option>Taiwan / APAC</option></select><select id="priorityFilter"><option value="">All priorities</option><option>High</option><option>Medium</option></select><input id="compFilter" placeholder="Filter competitor name"></div>
+    <div class="competitor-grid" id="competitorGrid"></div>
+  </section>
+
+  <section class="view" id="battles">
+    <div class="notice"><b>Comparison rule:</b> only mark a capability as verified when public evidence supports it. “Not verified” is not the same as “does not offer.”</div>
+    <div class="table-wrap"><table><thead><tr><th>Capability</th><th>CENTOGENE</th><th>Key competitors</th><th>Sales question</th><th>Priority</th></tr></thead><tbody id="battleTable"></tbody></table></div>
+  </section>
+
+  <section class="view" id="taiwan">
+    <div class="section-head"><h2>Taiwan competitive watch</h2><span>Local market lens</span></div>
+    <div class="grid" id="taiwanGrid"></div>
+    <div class="section-head"><h2>Recommended Taiwan sales lenses</h2></div>
+    <div class="battle-grid">
+      <div class="card"><h3>Local service vs global expertise</h3><ul><li>Ask what must be performed locally and what can be centralized.</li><li>Position global rare-disease expertise where it creates clinical value.</li><li>Do not make unsupported TAT or regulatory comparisons.</li></ul></div>
+      <div class="card"><h3>Oncology saturation</h3><ul><li>Expect strong local oncology NGS competition.</li><li>Differentiate MOx according to clinical question, interpretation and workflow.</li><li>Explore whether customers also need rare-disease or inherited-disease capabilities.</li></ul></div>
+    </div>
+  </section>
+
+  <section class="view" id="apac">
+    <div class="section-head"><h2>APAC watch</h2><span>Regional expansion signals</span></div>
+    <div class="grid">
+      <div class="card"><h3>🇯🇵 Japan</h3><div class="meta">Track local laboratories, distributor relationships, reimbursement and conference activity.</div></div>
+      <div class="card"><h3>🇰🇷 South Korea</h3><div class="meta">Watch Macrogen and emerging clinical genomics providers, especially WGS and rare disease.</div></div>
+      <div class="card"><h3>🇸🇬 Singapore</h3><div class="meta">Watch regional hubs, precision medicine programs and multinational lab expansion.</div></div>
+      <div class="card"><h3>🇭🇰 Greater China</h3><div class="meta">Track local access, regulatory requirements, partnerships and genomic data initiatives.</div></div>
+      <div class="card"><h3>🇦🇺 Australia</h3><div class="meta">Track clinical genomics, rare disease services and public/private laboratory models.</div></div>
+      <div class="card"><h3>🇮🇳 India</h3><div class="meta">Track price/access dynamics, high-volume testing and rapidly expanding genomics providers.</div></div>
+    </div>
+  </section>
+
+  <section class="view" id="sales">
+    <div class="section-head"><h2>Sales intelligence</h2><span>Turn evidence into customer conversations</span></div>
+    <div class="battle-grid">
+      <div class="card"><h3>Customer objection</h3><div class="meta">“Our current laboratory already provides WES/WGS.”</div><p><b>Suggested response:</b> Ask what happens when the first analysis is unresolved, whether reanalysis is structured, and how phenotype and longitudinal information are incorporated into interpretation.</p></div>
+      <div class="card"><h3>Discovery questions</h3><ul><li>What is your current diagnostic yield?</li><li>How are VUS and unresolved cases handled?</li><li>Do you have a reanalysis pathway?</li><li>Which difficult genomic disorders are hardest to diagnose?</li><li>Is oncology the only genomic testing need?</li></ul></div>
+      <div class="card"><h3>Positioning principle</h3><p>Do not compete only on gene count, price or turnaround. Anchor the conversation in <b>clinical question → technology → interpretation → data → report → follow-up</b>.</p></div>
+      <div class="card"><h3>Confidence discipline</h3><p>Use “verified,” “inference,” and “unknown.” If a competitor capability cannot be confirmed from a credible source, say so explicitly.</p></div>
+    </div>
+  </section>
+
+  <section class="view" id="research">
+    <div class="notice"><b>Research mode:</b> This prototype prepares structured research prompts. Connect a server-side search/API layer to execute live web research securely. Never expose API keys in this frontend.</div>
+    <div class="card">
+      <h3>Research assignment</h3>
+      <textarea id="researchPrompt" style="width:100%;min-height:150px;border:1px solid var(--line);border-radius:9px;padding:12px;font:inherit;margin:10px 0" placeholder="e.g. Compare the latest CentoGenome competitors in Taiwan. Focus on WGS, interpretation, reanalysis, repeat expansions, TAT, regulatory/access and sales implications."></textarea>
+      <button class="btn red" onclick="prepareResearch()">Create structured research brief</button>
+      <div id="researchOutput" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <section class="view" id="sources">
+    <div class="notice"><b>Source hierarchy:</b> Primary sources first; credible secondary sources for triangulation; social media for market signals and discovery. LinkedIn links are included because regional/commercial announcements can appear there before formal newsroom updates.</div>
+    <div class="table-wrap"><table><thead><tr><th>Competitor</th><th>Website</th><th>News / IR</th><th>LinkedIn</th></tr></thead><tbody id="sourceTable"></tbody></table></div>
+  </section>
+
+  <footer>Prototype v1 · Public-source intelligence only · Verify current claims before external customer use.</footer>
+</main>
+</div>
+
+<div class="modal" id="modal"><div class="modal-box"><div class="modal-head"><div><h2 id="modalTitle" style="margin:0"></h2><div id="modalMeta" class="meta"></div></div><button class="close" onclick="closeModal()">×</button></div><div id="modalBody" style="margin-top:18px"></div></div></div>
+
+<script src="data.js"></script>
+<script>
+window.LIVE_DATA_URL = "data/live.json";
+</script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const pageNames={dashboard:"Competitive Intelligence Dashboard",competitors:"Competitor Watchlist",battles:"Product Battles",taiwan:"Taiwan Competitive Watch",apac:"APAC Market Watch",sales:"Sales Intelligence",research:"Research Assistant",sources:"Source Registry"};
+function showView(id){$$('.view').forEach(x=>x.classList.toggle('active',x.id===id));$$('#nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===id));$('#pageTitle').textContent=pageNames[id];window.scrollTo({top:0,behavior:'smooth'})}
+$('#nav').addEventListener('click',e=>{const b=e.target.closest('button');if(b)showView(b.dataset.view)});
+function impactClass(x){return x==="High"?"high":x==="Medium"?"med":"low"}
+function renderUpdates(){
+ $('#updates').innerHTML=UPDATES.map(u=>`<div class="card"><div class="update"><div class="update-date">${u.date}<br><span class="impact ${impactClass(u.impact)}">${u.impact}</span></div><div><div class="update-title">${u.company} — ${u.title}</div><div class="update-summary">${u.summary}</div><div class="tags"><span class="tag">${u.area}</span><span class="tag">Confidence: ${u.confidence}</span></div><div style="margin-top:10px;font-size:11px"><b>Sales implication:</b> ${u.sales}</div><div style="margin-top:9px"><a class="btn" href="${u.source}" target="_blank" rel="noopener">Open source ↗</a></div></div></div></div>`).join('');
+}
+function renderProducts(){
+ $('#productCards').innerHTML=PRODUCTS.map(p=>`<div class="card"><h3>${p.name}</h3><div class="meta">${p.focus}</div><div class="tags">${p.competitors.split(', ').map(c=>`<span class="tag">${c}</span>`).join('')}</div><div style="font-size:11px;margin-top:10px"><b>Watch:</b> ${p.keywords}</div></div>`).join('');
+}
+function renderCompetitors(){
+ const rf=$('#regionFilter').value,pf=$('#priorityFilter').value,q=$('#compFilter').value.toLowerCase();
+ const arr=COMPETITORS.filter(c=>(!rf||c.region===rf)&&(!pf||c.priority===pf)&&(!q||c.name.toLowerCase().includes(q)));
+ $('#competitorGrid').innerHTML=arr.map(c=>`<div class="card comp" onclick="openComp('${encodeURIComponent(c.name)}')"><div class="comp-top"><h3>${c.name}</h3><span><i class="priority-dot dot-${c.priority.toLowerCase()}"></i>${c.priority}</span></div><div class="meta">${c.region} · ${c.focus}</div><div class="tags"><span class="tag">Website</span><span class="tag">News</span><span class="tag">LinkedIn</span></div></div>`).join('');
+}
+['regionFilter','priorityFilter','compFilter'].forEach(id=>$('#'+id).addEventListener('input',renderCompetitors));
+function openComp(enc){
+ const c=COMPETITORS.find(x=>x.name===decodeURIComponent(enc)); if(!c)return;
+ $('#modalTitle').textContent=c.name;$('#modalMeta').textContent=`${c.region} · ${c.focus} · Priority ${c.priority}`;
+ const relevant=UPDATES.filter(u=>u.company.toLowerCase().includes(c.name.split('/')[0].trim().toLowerCase())).slice(0,3);
+ $('#modalBody').innerHTML=`<div class="links"><a href="${c.website}" target="_blank">Official website ↗</a><a href="${c.news}" target="_blank">News / IR ↗</a><a href="${c.linkedin}" target="_blank">LinkedIn ↗</a></div><hr style="border:0;border-top:1px solid var(--line);margin:16px 0"><h3>Public-source research checklist</h3><ul style="font-size:12px;line-height:1.8"><li>Check product menu and technical documentation.</li><li>Check newsroom / investor announcements.</li><li>Check LinkedIn for regional commercial signals.</li><li>Check publications and regulatory evidence.</li><li>Separate verified facts from inference.</li></ul>${relevant.length?'<h3>Loaded signals</h3>'+relevant.map(u=>`<p style="font-size:12px"><b>${u.date}</b> — ${u.title}</p>`).join(''):''}`;
+ $('#modal').classList.add('open');
+}
+function closeModal(){$('#modal').classList.remove('open')}
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+function renderBattles(){
+ $('#battleTable').innerHTML=PRODUCTS.map((p,i)=>`<tr><td class="product-name">${p.name}</td><td><span class="check">✓</span> Core area</td><td>${p.competitors}</td><td>${["What is the clinical question?","How are VUS/reanalysis handled?","What is the interpretation workflow?","How broad is the diagnostic scope?"][i%4]}</td><td><span class="impact ${i<4?'high':'med'}">${i<4?'High':'Medium'}</span></td></tr>`).join('');
+}
+function renderTaiwan(){
+ const arr=COMPETITORS.filter(c=>c.region.includes("Taiwan"));
+ $('#taiwanGrid').innerHTML=arr.map(c=>`<div class="card"><div class="comp-top"><h3>${c.name}</h3><span class="impact ${impactClass(c.priority)}">${c.priority}</span></div><div class="meta">${c.focus}</div><div style="margin-top:10px"><a class="btn" href="${c.website}" target="_blank">Website ↗</a> <a class="btn" href="${c.linkedin}" target="_blank">LinkedIn ↗</a></div></div>`).join('');
+}
+function renderSources(){
+ $('#sourceTable').innerHTML=COMPETITORS.map(c=>`<tr><td><b>${c.name}</b></td><td><a href="${c.website}" target="_blank">Website ↗</a></td><td><a href="${c.news}" target="_blank">News ↗</a></td><td><a href="${c.linkedin}" target="_blank">LinkedIn ↗</a></td></tr>`).join('');
+}
+function runSearch(){
+ const q=$('#globalSearch').value.trim().toLowerCase();if(!q)return;
+ const matches=[...COMPETITORS.filter(c=>(c.name+" "+c.focus+" "+c.region).toLowerCase().includes(q)),...UPDATES.filter(u=>(u.company+" "+u.title+" "+u.area+" "+u.summary).toLowerCase().includes(q))];
+ showView('competitors');$('#compFilter').value=q;renderCompetitors();
+ if(!matches.length) alert("No local matches found. Use Research for a live web investigation.");
+}
+function prepareResearch(){
+ const p=$('#researchPrompt').value.trim();if(!p){alert("Enter a research question first.");return}
+ $('#researchOutput').innerHTML=`<div class="card" style="background:#fafafa"><b>Structured brief ready</b><ol style="font-size:12px;line-height:1.8"><li>Define research cutoff and scope.</li><li>Search competitor official website, product pages, newsroom and LinkedIn.</li><li>Triangulate with publications, regulatory sources and credible secondary sources.</li><li>Record announcement date and effective/launch date separately.</li><li>Map findings to CENTOGENE product/capability.</li><li>Classify fact / inference / unknown.</li><li>Rank sales impact and confidence.</li><li>Produce objections, talking points, discovery questions and recommended action.</li></ol><pre style="white-space:pre-wrap;background:#fff;border:1px solid var(--line);padding:12px;border-radius:8px;font-size:11px">${p.replace(/</g,"&lt;")}</pre></div>`;
+}
+async function loadLiveData(){
+  try{
+    const r=await fetch(window.LIVE_DATA_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) throw new Error("live data unavailable");
+    const d=await r.json();
+    if(d.competitors) COMPETITORS.splice(0,COMPETITORS.length,...d.competitors);
+    if(d.products) PRODUCTS.splice(0,PRODUCTS.length,...d.products);
+    if(d.updates) UPDATES.splice(0,UPDATES.length,...d.updates);
+    const stamp=d.generated_at?new Date(d.generated_at).toLocaleString():"unknown";
+    const sub=document.querySelector(".sub");
+    if(sub) sub.textContent="Sales-oriented market intelligence for CENTOGENE APAC · Live dataset updated "+stamp;
+    const k=document.getElementById("kpiComp"); if(k) k.textContent=COMPETITORS.length;
+  }catch(e){
+    console.warn("Using bundled fallback data:",e.message);
+  }
+  renderUpdates();renderProducts();renderCompetitors();renderBattles();renderTaiwan();renderSources();
+}
+loadLiveData();
+
+</script>
+</body></html>

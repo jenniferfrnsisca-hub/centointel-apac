@@ -1,0 +1,70 @@
+{
+  "timezone": "Asia/Taipei",
+  "lookback_hours": 36,
+  "competitors": [
+    "Guardant Health",
+    "SYNLAB",
+    "Myriad Genetics",
+    "Labcorp",
+    "Igenomix / Vitrolife",
+    "Macrogen",
+    "CeGaT",
+    "OncoDNA",
+    "NeoGenomics",
+    "Fulgent Genetics",
+    "GeneDx",
+    "Invitae",
+    "SOPHiA GENETICS",
+    "Natera",
+    "10x Genomics",
+    "23andMe",
+    "ACT Genomics / ACT Gene",
+    "TGIA / 台基盟生技",
+    "Gene Health / 台灣基康",
+    "KimForest / 金萬林",
+    "GGA",
+    "Sofiva Genomics / 慧智基因"
+  ],
+  "product_battles": [
+    "CentoGenome",
+    "CentoXome",
+    "CentoDX / biodata",
+    "MOx",
+    "Neuro",
+    "Pediatrics",
+    "Repeat expansion",
+    "VUS / reanalysis"
+  ],
+  "source_policy": {
+    "tier_1": [
+      "official website",
+      "product pages",
+      "newsroom",
+      "investor relations",
+      "regulatory",
+      "peer-reviewed publication"
+    ],
+    "tier_2": [
+      "Reuters",
+      "GenomeWeb",
+      "Fierce Biotech",
+      "BioSpace",
+      "other credible industry media"
+    ],
+    "tier_3": [
+      "LinkedIn",
+      "other social media",
+      "blogs",
+      "aggregators"
+    ]
+  },
+  "rules": [
+    "Do not fabricate capabilities, pricing, regulatory status, partnerships, market share, turnaround time, or APAC availability.",
+    "Prefer competitor primary sources for product claims.",
+    "Separate verified facts, inference, and uncertainty.",
+    "Record publication/announcement date and effective/launch date when available.",
+    "Only create an update when it is new or materially changed.",
+    "Map each meaningful signal to CENTOGENE product/capability and sales implications.",
+    "Use Taiwan/APAC sources when the development concerns regional access or competition."
+  ]
+}
